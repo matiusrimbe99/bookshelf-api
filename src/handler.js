@@ -18,7 +18,7 @@ const addBookHandler = (request, h) => {
   const insertedAt = new Date().toISOString();
   const updatedAt = insertedAt;
 
-  if (name == null) {
+  if (!name) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
@@ -238,7 +238,6 @@ const editBookByIdHandler = (request, h) => {
       status: 'success',
       message: 'Buku berhasil diperbarui',
     });
-    response.code(200);
     return response;
   }
 
@@ -261,7 +260,6 @@ const deleteBookByIdHandler = (request, h) => {
       status: 'success',
       message: 'Buku berhasil dihapus',
     });
-    response.code(200);
     return response;
   }
 
